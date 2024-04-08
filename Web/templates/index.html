@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifier</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Upload Your Image</h2>
+        <form action="{% url 'Classifier:classify' %}" method="post" enctype="multipart/form-data">
+            <!-- Add CSRF token if using Django -->
+            {% csrf_token %}
+            <label for="file-upload" class="custom-file-upload">Choose File</label>
+            <input id="file-upload" type="file" name="image" accept="image/*">
+            <hr>
+            <input type="submit" class="classify_sub" value="Classify">
+        </form>
+        {% if image_path %}
+        <h2>Predicted Flower Species: {{ predicted_label }}</h2>
+        <h3>accuracy: {{ percent_label }} %</h3>
+        <img src="{{ image_path }}" alt="Uploaded Image" class="img_user">
+    {% endif %}
+    </div>
+</body>
+</html>
