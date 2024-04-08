@@ -268,3 +268,19 @@ Where:
 | accuracy     |           |        | 0.99     | 1602    |
 | macro avg    | 0.99      | 0.99   | 0.99     | 1602    |
 | weighted avg | 0.99      | 0.99   | 0.99     | 1602    |
+
+
+## Web Application
+
+### How to start the project
+
+- Configure Database
+Datebase is not configured yet; To configure it try python manage.py makemigrations
+python manage.py migrate
+
+- Create a superuser
+If you want to have access to admin area you have to have a superuser:
+python manage.py createsuperuser
+
+- Run server
+To Start the project use python manage.py runserver
